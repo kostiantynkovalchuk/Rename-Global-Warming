@@ -25,8 +25,14 @@
         <h1 class="rename-h1">RENAME</h1>
         <h2 class="gw-h1">"global warming"</h2>
       </div>
-      <form action="#" method="POST">
-        <input type="text" id="input-field" placeholder="Enter your option" />
+      <form id="name-form" action="#" method="POST">
+        <input
+          type="text"
+          id="input-field"
+          name="suggestion"
+          placeholder="Enter your option"
+          required
+        />
         <button id="sub-button" type="submit">Submit</button>
       </form>
     </section>
@@ -120,6 +126,6 @@
       </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
