@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("name-form");
   const inputField = document.getElementById("input-field");
   const nameDisplay = document.getElementById("name-of-the-day");
+  const counterBox = document.getElementById("counter-box");
 
   // Scroll to Section 1 when "Ready to Rename?" button is clicked
   document
@@ -48,19 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth",
         block: "start",
       });
+
+      // Update the counter
+      updateCounter();
     }
   });
 
-  // Load latest name on page load
-  async function loadLatestName() {
+  // Load latest name and counter on page load
+  async function loadLatestNameAndCounter() {
     const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
     const names = querySnapshot.docs.map((doc) => doc.data().name);
     if (names.length > 0) {
       nameDisplay.textContent = names[names.length - 1]; // Show last submitted name
     }
+    counterBox.textContent = names.length; // Update counter
   }
 
-  loadLatestName();
+  loadLatestNameAndCounter();
 
   const carousel = document.getElementById("carousel-images");
   const images = document.querySelectorAll("#carousel-images img");
@@ -83,5 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCarousel() {
     const imageWidth = images[0].clientWidth; // Getting single image width
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  }
+
+  async function updateCounter() {
+    const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
+    counterBox.textContent = querySnapshot.docs.length; // Update counter
   }
 });

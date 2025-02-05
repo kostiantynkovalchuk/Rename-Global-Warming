@@ -387,3 +387,14 @@ footer .profile {
   font-weight: lighter;
   font-size: 0.7rem;
 }
+
+/* Counter box */
+#counter-box {
+  display: inline-block;
+  background: #ff5722;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+}
