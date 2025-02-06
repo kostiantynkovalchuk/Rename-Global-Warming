@@ -387,6 +387,9 @@ footer .profile {
   font-weight: lighter;
   font-size: 0.7rem;
 }
+.said-img {
+  object-fit: cover;
+}
 
 /* Counter box */
 #counter-box {
