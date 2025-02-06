@@ -181,7 +181,39 @@ form {
   background-color: var(--white);
 }
 
-#carousel-container {
+.case-carousel {
+  position: relative;
+}
+
+.case-button {
+  background-color: var(--yellow);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0.7rem;
+}
+
+.case-button:hover {
+  background-color: var(--black);
+  color: var(--yellow);
+}
+
+#case-left {
+  left: 0;
+}
+
+#case-right {
+  right: 0;
+}
+
+.carousel-container {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -241,6 +273,19 @@ form {
 #story-description p {
   font-size: 1.2rem;
   color: var(--black);
+}
+
+#case-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+.case-item {
+  flex: 0 0 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 /* Section 4 */

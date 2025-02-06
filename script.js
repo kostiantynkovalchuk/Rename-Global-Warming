@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadLatestNameAndCounter();
 
+  // ---- IMAGE CAROUSEL ----
+
   const carousel = document.getElementById("carousel-images");
   const images = document.querySelectorAll("#carousel-images img");
   let currentIndex = 0;
