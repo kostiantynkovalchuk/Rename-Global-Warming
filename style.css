@@ -198,6 +198,7 @@ form {
   top: 50%;
   transform: translateY(-50%);
   margin: 0.7rem;
+  z-index: 20;
 }
 
 .case-button:hover {
@@ -213,6 +214,18 @@ form {
   right: 0;
 }
 
+#carousel-cases {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+#carousel-cases figure {
+  min-width: 100%;
+  object-fit: cover;
+  flex: 0 0 100%;
+}
+
 .carousel-container {
   width: 100%;
   max-width: 1000px;
@@ -221,13 +234,13 @@ form {
   position: relative;
 }
 
-#carousel-images {
+.carousel-images {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%; /* Making sure images use the full width */
 }
 
-#carousel-images img {
+.carousel-images img {
   width: 100%; /* Ensuring each image fills its space */
   max-height: 400px; /* Adjusting max height */
   object-fit: cover; /* Filling without distortion */
@@ -250,11 +263,11 @@ form {
   margin: 0.7rem;
 }
 
-#carousel-left {
+.carousel-left {
   left: 0;
 }
 
-#carousel-right {
+.carousel-right {
   right: 0;
 }
 
@@ -263,14 +276,14 @@ form {
   color: var(--yellow);
 }
 
-#story-description {
+.story-description {
   margin-top: 3rem;
   text-align: left;
   width: 70%;
   margin: 1rem auto;
 }
 
-#story-description p {
+.story-description p {
   font-size: 1.2rem;
   color: var(--black);
 }
