@@ -67,30 +67,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadLatestNameAndCounter();
 
-  // ---- IMAGE CAROUSEL ----
+  // ---- IMAGE CAROUSEL (beginning) ---->
 
   const carousel = document.getElementById("carousel-images");
   const images = document.querySelectorAll("#carousel-images img");
-  let currentIndex = 0;
+  let currentImgIndex = 0;
 
   document.getElementById("carousel-left").addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
+    if (currentImgIndex > 0) {
+      currentImgIndex--;
+      updateCarousel(carousel, images, currentImgIndex);
     }
   });
 
   document.getElementById("carousel-right").addEventListener("click", () => {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-      updateCarousel();
+    if (currentImgIndex < images.length - 1) {
+      currentImgIndex++;
+      updateCarousel(carousel, images, currentImgIndex);
     }
   });
 
-  function updateCarousel() {
-    const imageWidth = images[0].clientWidth; // Getting single image width
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  function updateCarousel(parent, element, counter) {
+    const elementWidth = element[0].clientWidth;
+    parent.style.transform = `translateX(-${counter * elementWidth}px)`;
   }
+
+  // <---- IMAGE CAROUSEL (ending) ----
 
   async function updateCounter() {
     const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
