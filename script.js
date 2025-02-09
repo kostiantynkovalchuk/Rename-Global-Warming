@@ -67,28 +67,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadLatestNameAndCounter();
 
-  const carousel = document.getElementById("carousel-images");
-  const images = document.querySelectorAll("#carousel-images img");
-  let currentIndex = 0;
+  // ---- CASE CAROUSEL ---->
 
-  document.getElementById("carousel-left").addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
+  const carouselCases = document.getElementById("carousel-cases");
+  const cases = document.querySelectorAll("#carousel-cases figure");
+  let currentCaseIndex = 0;
+
+  document.getElementById("case-left").addEventListener("click", () => {
+    if (currentCaseIndex > 0) {
+      currentCaseIndex--;
+      updateCarousel(carouselCases, cases, currentCaseIndex);
     }
   });
 
-  document.getElementById("carousel-right").addEventListener("click", () => {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-      updateCarousel();
+  document.getElementById("case-right").addEventListener("click", () => {
+    if (currentCaseIndex < cases.length - 1) {
+      currentCaseIndex++;
+      updateCarousel(carouselCases, cases, currentCaseIndex);
     }
   });
 
-  function updateCarousel() {
-    const imageWidth = images[0].clientWidth; // Getting single image width
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  // -- IMAGE CAROUSEL -->
+
+  // - Dana Imgs ->
+  const carouselImgs = document.getElementById("carousel-images-1");
+  const images = document.querySelectorAll("#carousel-images-1 img");
+  let currentImgIndex1 = 0;
+
+  document.getElementById("carousel-left-1").addEventListener("click", () => {
+    if (currentImgIndex1 > 0) {
+      currentImgIndex1--;
+      updateCarousel(carouselImgs, images, currentImgIndex1);
+    }
+  });
+
+  document.getElementById("carousel-right-1").addEventListener("click", () => {
+    if (currentImgIndex1 < images.length - 1) {
+      currentImgIndex1++;
+      updateCarousel(carouselImgs, images, currentImgIndex1);
+    }
+  });
+  // <- Dana Imgs -
+
+  // - Ice Imgs ->
+  const carouselImgs2 = document.getElementById("carousel-images-2");
+  const images2 = document.querySelectorAll("#carousel-images-2 img");
+  let currentImgIndex2 = 0;
+
+  document.getElementById("carousel-left-2").addEventListener("click", () => {
+    if (currentImgIndex2 > 0) {
+      currentImgIndex2--;
+      updateCarousel(carouselImgs2, images2, currentImgIndex2);
+    }
+  });
+
+  document.getElementById("carousel-right-2").addEventListener("click", () => {
+    if (currentImgIndex2 < images2.length - 1) {
+      currentImgIndex2++;
+      updateCarousel(carouselImgs2, images2, currentImgIndex2);
+    }
+  });
+  // <- Ice Imgs -
+
+  // <-- IMAGE CAROUSEL --
+
+  function updateCarousel(parent, elements, counter) {
+    const elementWidth = elements[0].clientWidth;
+    parent.style.transform = `translateX(-${counter * elementWidth}px)`;
   }
+
+  // <---- CASE CAROUSEL ----
 
   async function updateCounter() {
     const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
