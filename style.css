@@ -509,11 +509,11 @@ footer .profile {
 
 /* Case button positioning */
 .case-left {
-  left: 0;
+  left: -50px; /* Adjust this value to position the button between the container and the viewport edge */
 }
 
 .case-right {
-  right: 0;
+  right: -50px; /* Adjust this value to position the button between the container and the viewport edge */
 }
 
 /* Carousel container styles */
