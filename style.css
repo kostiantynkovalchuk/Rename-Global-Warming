@@ -419,7 +419,7 @@ footer .profile {
 #credentials,
 .description,
 .copyright {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 #credentials {
@@ -441,7 +441,7 @@ footer .profile {
   margin-bottom: 0.5rem;
 }
 .profile p {
-  color: var(--white);
+  color: var(--yellow);
   
 }
 .description {
