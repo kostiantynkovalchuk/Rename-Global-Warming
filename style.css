@@ -440,7 +440,10 @@ footer .profile {
   border-radius: 50%;
   margin-bottom: 0.5rem;
 }
-
+.profile p {
+  color: white;
+  
+}
 .description {
   font-size: 0.875rem;
   margin-bottom: 1rem;
