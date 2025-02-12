@@ -76,35 +76,47 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("case-left").addEventListener("click", () => {
     if (currentCaseIndex > 0) {
       currentCaseIndex--;
-      updateCarousel(carouselCases, cases, currentCaseIndex);
+      updateCaseCarousel();
     }
   });
 
   document.getElementById("case-right").addEventListener("click", () => {
     if (currentCaseIndex < cases.length - 1) {
       currentCaseIndex++;
-      updateCarousel(carouselCases, cases, currentCaseIndex);
+      updateCaseCarousel();
     }
   });
 
+  function updateCaseCarousel() {
+    const caseWidth = cases[0].clientWidth; // Getting single case width
+    carouselCases.style.transform = `translateX(-${
+      currentCaseIndex * caseWidth
+    }px)`;
+  }
+
   // -- IMAGE CAROUSEL -->
 
+  function updateImageCarousel(parent, elements, counter) {
+    const elementWidth = parent.clientWidth;
+    parent.style.transform = `translateX(-${counter * elementWidth}px)`;
+  }
+
   // - Dana Imgs ->
-  const carouselImgs = document.getElementById("carousel-images-1");
-  const images = document.querySelectorAll("#carousel-images-1 img");
+  const carouselImgs1 = document.getElementById("carousel-images-1");
+  const images1 = document.querySelectorAll("#carousel-images-1 img");
   let currentImgIndex1 = 0;
 
   document.getElementById("carousel-left-1").addEventListener("click", () => {
     if (currentImgIndex1 > 0) {
       currentImgIndex1--;
-      updateCarousel(carouselImgs, images, currentImgIndex1);
+      updateImageCarousel(carouselImgs1, images1, currentImgIndex1);
     }
   });
 
   document.getElementById("carousel-right-1").addEventListener("click", () => {
-    if (currentImgIndex1 < images.length - 1) {
+    if (currentImgIndex1 < images1.length - 1) {
       currentImgIndex1++;
-      updateCarousel(carouselImgs, images, currentImgIndex1);
+      updateImageCarousel(carouselImgs1, images1, currentImgIndex1);
     }
   });
   // <- Dana Imgs -
@@ -117,26 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("carousel-left-2").addEventListener("click", () => {
     if (currentImgIndex2 > 0) {
       currentImgIndex2--;
-      updateCarousel(carouselImgs2, images2, currentImgIndex2);
+      updateImageCarousel(carouselImgs2, images2, currentImgIndex2);
     }
   });
 
   document.getElementById("carousel-right-2").addEventListener("click", () => {
     if (currentImgIndex2 < images2.length - 1) {
       currentImgIndex2++;
-      updateCarousel(carouselImgs2, images2, currentImgIndex2);
+      updateImageCarousel(carouselImgs2, images2, currentImgIndex2);
     }
   });
   // <- Ice Imgs -
 
-  // <-- IMAGE CAROUSEL --
+  // - Ethiopia Imgs ->
+  const carouselImgs3 = document.getElementById("carousel-images-3");
+  const images3 = document.querySelectorAll("#carousel-images-3 img");
+  let currentImgIndex3 = 0;
 
-  function updateCarousel(parent, elements, counter) {
-    const elementWidth = elements[0].clientWidth;
-    parent.style.transform = `translateX(-${counter * elementWidth}px)`;
-  }
+  document.getElementById("carousel-left-3").addEventListener("click", () => {
+    if (currentImgIndex3 > 0) {
+      currentImgIndex3--;
+      updateImageCarousel(carouselImgs3, images3, currentImgIndex3);
+    }
+  });
 
-  // <---- CASE CAROUSEL ----
+  document.getElementById("carousel-right-3").addEventListener("click", () => {
+    if (currentImgIndex3 < images3.length - 1) {
+      currentImgIndex3++;
+      updateImageCarousel(carouselImgs3, images3, currentImgIndex3);
+    }
+  });
+  // <- Ethiopia Imgs -
 
   async function updateCounter() {
     const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
