@@ -182,6 +182,7 @@ form {
 
 .case-carousel {
   position: relative;
+  overflow: hidden;
 }
 
 .case-button {
@@ -195,21 +196,10 @@ form {
   transition: background-color 0.3s;
   position: absolute;
   top: 50%;
-  transform: translateX(-50%) rotate(90deg)
-  width: 18.5px; 
-  height: 116.5px;
+  transform: translateX(-50%) rotate(90deg);
+  width: 42.5px;
+  height: 160.5px;
 }
-
-.carousel-left,
-.case-left {
-  left: 0;
-}
-
-.carousel-right,
-.case-right {
-  right: 0;
-}
-
 
 .case-button:hover {
   background-color: var(--black);
@@ -217,11 +207,11 @@ form {
 }
 
 #case-left {
-  left: 0;
+  left: 4%;
 }
 
 #case-right {
-  right: 0;
+  right: 4%;
 }
 
 #carousel-cases {
@@ -430,7 +420,6 @@ footer .profile {
 
 .profile {
   text-align: center;
-  
 }
 
 .profile img {
@@ -441,7 +430,6 @@ footer .profile {
 }
 .profile p {
   color: var(--yellow);
-  
 }
 .description {
   font-size: 0.875rem;
@@ -504,15 +492,6 @@ footer .profile {
 
 .carousel-right {
   right: 0;
-}
-
-/* Case button positioning */
-.case-left {
-  left: -50px; /* Adjust this value to position the button between the container and the viewport edge */
-}
-
-.case-right {
-  right: -50px; /* Adjust this value to position the button between the container and the viewport edge */
 }
 
 /* Carousel container styles */
@@ -604,4 +583,3 @@ footer .profile {
     width: 400px;
   }
 }
-
