@@ -336,11 +336,11 @@ form {
   text-align: center;
 }
 
-.content-wrapper-share-story {
-  max-width: 600px;
-  margin: 0 auto;
+#content-wrapper-share-story {
   display: flex;
   flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
   align-items: center;
   gap: 1.5rem;
 }
@@ -638,4 +638,80 @@ footer .profile {
   #input-field {
     width: 400px;
   }
+}
+
+/* Section-3 and section-5 optimization for mobile */
+
+@media (max-width: 768px) {
+  #section-3 {
+    padding: 1rem 0.5rem; /* Reduce padding for mobile */
+  }
+  .carousel-container {
+    padding: 0.5rem; /* Reduce padding for carousel container */
+  }
+}
+
+@media (max-width: 768px) {
+  .case-button {
+    width: 30px; /* Smaller width for mobile */
+    height: 100px; /* Smaller height for mobile */
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .story-description {
+    margin-top: 1rem; /* Add spacing between images and description */
+    width: 90%; /* Make description take full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-images img {
+    max-height: 250px; /* Reduce image height for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-images {
+    width: 100%; /* Ensure images fit within the screen */
+  }
+}
+
+@media (max-width: 768px) {
+  .case-button {
+    top: 40%; /* Adjust vertical position for mobile */
+  }
+  #case-left {
+    left: 2%; /* Move left button closer to the edge */
+  }
+  #case-right {
+    right: 2%; /* Move right button closer to the edge */
+  }
+}
+
+@media (max-width: 768px) {
+  #name-of-the-day {
+    font-size: 5rem; /* Smaller font size for mobile */
+  }
+  #counter-box {
+    font-size: 1rem; /* Smaller font size for counter */
+  }
+}
+
+@media (max-width: 768px) {
+  #return-to-section1 {
+    padding: 0.5rem 1rem; /* Smaller padding for mobile */
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  #section-5 {
+    background-size: contain; /* Adjust background size for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile-specific styles */
 }
