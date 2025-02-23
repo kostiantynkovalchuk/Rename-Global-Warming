@@ -168,9 +168,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---- STORY SHARING ---->
 
+  // Toggle "Share My Story" section
   document.getElementById("add-story").addEventListener("click", () => {
     const shareStorySection = document.getElementById("share-story-section");
-    shareStorySection.style.display = "block"; // Show the section
+
+    // Toggle visibility
+    if (
+      shareStorySection.style.display === "none" ||
+      !shareStorySection.style.display
+    ) {
+      shareStorySection.style.display = "block"; // Show the section
+    } else {
+      shareStorySection.style.display = "none"; // Hide the section
+    }
   });
 
   // Handle Story Submission
