@@ -165,4 +165,78 @@ document.addEventListener("DOMContentLoaded", () => {
     const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
     counterBox.textContent = querySnapshot.docs.length; // Update counter
   }
+
+  // ---- STORY SHARING ---->
+
+  document.getElementById("add-story").addEventListener("click", () => {
+    const shareStorySection = document.getElementById("share-story-section");
+    shareStorySection.style.display = "block"; // Show the section
+  });
+
+  // Handle Story Submission
+  document
+    .getElementById("story-form")
+    .addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const description = document
+        .getElementById("story-description")
+        .value.trim();
+      const images = document.getElementById("story-images").files;
+
+      if (!description || images.length === 0) {
+        alert("Please write your story and upload at least one image.");
+        return;
+      }
+
+      if (images.length > 5) {
+        alert("You can upload a maximum of 5 images.");
+        return;
+      }
+
+      try {
+        // Upload images to Cloudinary
+        const imageUrls = await uploadImagesToCloudinary(images);
+
+        // Save story to Firestore
+        await addDoc(collection(db, "stories"), {
+          description: description,
+          images: imageUrls,
+          timestamp: new Date(),
+        });
+
+        alert("Your story has been submitted successfully!");
+        document.getElementById("share-story-section").style.display = "none"; // Hide the section
+      } catch (error) {
+        console.error("Error submitting story:", error);
+        alert("An error occurred. Please try again.");
+      }
+    });
+
+  // Function to Upload Images to Cloudinary
+  async function uploadImagesToCloudinary(images) {
+    const imageUrls = [];
+    for (const image of images) {
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "story_uploads");
+      formData.append("folder", "RenameGlobalWarming"); // Save to the "RenameGlobalWarming" folder
+
+      try {
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/dbs5xendr/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+        const data = await response.json();
+        imageUrls.push(data.secure_url); // URL of the uploaded image
+      } catch (error) {
+        console.error("Error uploading image to Cloudinary:", error);
+        throw error;
+      }
+    }
+    return imageUrls;
+  }
 });

@@ -14,10 +14,12 @@
     <header>
       <nav class="navbar">
         <ul>
-          <li><a href="#footer">Log in</a></li>
+          <!--<li><a href="#footer">Log in</a></li> -->
         </ul>
       </nav>
     </header>
+
+    <!-- Section 1 "Rename Global Warming" -->
 
     <section id="section-1">
       <div class="heading-container">
@@ -35,6 +37,8 @@
         <button id="sub-button" type="submit">Submit</button>
       </form>
     </section>
+
+    <!-- Section 2 "Why Do I Care" -->
 
     <section id="section-2">
       <div class="content-wrapper">
@@ -63,6 +67,8 @@
         </p>
       </div>
     </section>
+
+    <!-- Section 3 "True Stories" -->
 
     <section id="section-3">
       <div id="story-header">
@@ -198,11 +204,37 @@
       </div>
     </section>
 
+    <!-- Section 4 "Share My Story" -->
     <section id="section-4">
       <div class="content-wrapper">
         <button id="add-story">Share My Story</button>
       </div>
     </section>
+
+    <!-- "Share My Story" Hidden section -->
+    <div id="share-story-section" class="hidden">
+      <div class="content-wrapper-share-story">
+        <form id="story-form">
+          <textarea
+            id="story-description"
+            placeholder="Write your story (up to 100 words)..."
+            maxlength="100"
+            required
+          ></textarea>
+          <input
+            type="file"
+            id="story-images"
+            accept="image/*"
+            multiple
+            max="5"
+            required
+          />
+          <button type="submit">Submit Story</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Section 5 "Name of the Day  -->
 
     <section id="section-5">
       <div class="content-wrapper">
@@ -211,6 +243,8 @@
         <button id="return-to-section1">Ready to Rename It?</button>
       </div>
     </section>
+
+    <!-- Footer "Developer Team" -->
 
     <footer id="footer">
       <h2>DEVELOPER TEAM</h2>
