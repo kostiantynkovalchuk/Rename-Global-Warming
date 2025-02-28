@@ -337,12 +337,15 @@ form {
 }
 
 #content-wrapper-share-story {
-  display: flex;
-  flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
-  align-items: center;
+}
+
+#story-form {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 #share-story-section textarea {
