@@ -4,6 +4,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth",
         block: "start",
       });
+      await loadLatestNameAndCounter();
 
       // Update the counter
       updateCounter();
@@ -57,12 +59,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load latest name and counter on page load
   async function loadLatestNameAndCounter() {
-    const querySnapshot = await getDocs(collection(db, "globalWarmingNames"));
-    const names = querySnapshot.docs.map((doc) => doc.data().name);
-    if (names.length > 0) {
-      nameDisplay.textContent = names[names.length - 1]; // Show last submitted name
+    try {
+      const querySnapshot = await getDocs(
+        collection(db, "globalWarmingNames"),
+        orderBy("name", "desc")
+      );
+      const names = querySnapshot.docs.map((doc) => doc.data().name);
+      if (names.length > 0) {
+        nameDisplay.textContent = names[0]; // Show last submitted name
+      }
+      counterBox.textContent = names.length; // Update counter
+    } catch (error) {
+      console.error("Error loading latest name and counter:", error);
     }
-    counterBox.textContent = names.length; // Update counter
   }
 
   loadLatestNameAndCounter();
