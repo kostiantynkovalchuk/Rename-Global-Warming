@@ -15,6 +15,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  background-color: var(--white);
 }
 
 /* Global H2 Styling */
@@ -320,7 +321,6 @@ form {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 4rem;
 }
 
 #add-story:hover {
@@ -348,6 +348,18 @@ form {
   width: 100%;
 }
 
+#story-form button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--yellow);
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 #share-story-section textarea {
   width: 100%;
   height: 150px;
@@ -369,19 +381,6 @@ form {
   cursor: pointer;
 }
 
-#share-story-section button {
-  width: 100%;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: var(--yellow);
-  color: var(--black);
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
 #share-story-section button:hover {
   background-color: var(--black);
   color: var(--yellow);
@@ -392,6 +391,7 @@ form {
   padding: 4rem 2rem;
   background-color: var(--white);
   text-align: center;
+  margin-top: 4rem;
 }
 
 /* Background for Section 5 */
