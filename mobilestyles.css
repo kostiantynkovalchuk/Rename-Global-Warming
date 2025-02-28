@@ -1,0 +1,149 @@
+/* Media Queries for larger screens */
+@media (min-width: 768px) {
+  .rename-h1 {
+    font-size: 6rem;
+  }
+
+  .gw-h1 {
+    font-size: 2rem;
+  }
+
+  form {
+    flex-direction: row;
+  }
+
+  #input-field {
+    width: 300px;
+  }
+
+  #section-2 {
+    padding: 2rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .content-wrapper {
+    max-width: 65%;
+  }
+
+  #section-2 h2 {
+    margin-bottom: 4rem;
+  }
+
+  #story-header {
+    margin-bottom: 4rem;
+  }
+
+  #section-3 {
+    padding: 4rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rename-h1 {
+    font-size: 12rem;
+  }
+
+  .gw-h1 {
+    font-size: 2.5rem;
+  }
+
+  #input-field {
+    width: 400px;
+  }
+}
+
+/* Section-3 and section-5 optimization for mobile */
+
+@media (max-width: 768px) {
+  #section-3 {
+    padding: 1rem 0.5rem; /* Reduce padding for mobile */
+  }
+  .content-wrapper {
+    font-size: 1.2rem;
+  }
+
+  .story-description p {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .case-button {
+    width: 30px; /* Smaller width for mobile */
+    height: 100px; /* Smaller height for mobile */
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+  .story-description {
+    margin-top: 1rem; /* Add spacing between images and description */
+    width: 90%; /* Make description take full width */
+  }
+  .carousel-images img {
+    max-height: 250px; /* Reduce image height for mobile */
+  }
+  .carousel-images {
+    width: 100%; /* Ensure images fit within the screen */
+  }
+  .case-button {
+    top: 23%; /* Adjust vertical position for mobile */
+  }
+  #case-left {
+    left: -0.7rem; /* Move left button closer to the edge */
+  }
+  #case-right {
+    right: -0.7rem; /* Move right button closer to the edge */
+  }
+  #name-of-the-day {
+    font-size: 4rem; /* Smaller font size for mobile */
+  }
+  #counter-box {
+    font-size: 1rem; /* Smaller font size for counter */
+  }
+  #return-to-section1 {
+    padding: 0.5rem 1rem; /* Smaller padding for mobile */
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+  #section-5 {
+    background-size: contain; /* Adjust background size for mobile */
+  }
+
+  .carousel-left {
+    left: 1.5rem; /* Adjust left position for mobile */
+  }
+
+  .carousel-right {
+    right: 1.5rem; /* Adjust right position for mobile */
+  }
+
+  .carousel-button,
+  .case-button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  #section-5 {
+    margin-top: 0;
+    padding: 0 0rem;
+    background-size: auto;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  .content-wrapper h2 {
+    margin: 0;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  #h2-name {
+    display: flex;
+    justify-content: center;
+  }
+
+  #counter-box {
+    line-height: 32px;
+  }
+
+  #section-4 {
+    margin-bottom: 2rem;
+  }
+  #share-story-section {
+    padding: 0 1rem 3rem 1rem;
+  }
+}
