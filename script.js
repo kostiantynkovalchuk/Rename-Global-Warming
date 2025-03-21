@@ -71,6 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Define getTotalDocumentCount
+  async function getTotalDocumentCount(collectionName) {
+    const collectionRef = collection(db, collectionName);
+    const snapshot = await getDocs(collectionRef);
+    return snapshot.size;
+  }
   // Load latest name and counter on page load
 
   Copy;
