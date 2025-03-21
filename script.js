@@ -1,11 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getFirestore,
+  Timestamp,
   collection,
   addDoc,
   getDocs,
   orderBy,
+  query,
+  limit,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// Firebase configuration
 
 const firebaseConfig = {
   apiKey: "AIzaSyBeRhuh32_tLeZWh06XPg2GR5fEPAVygW4",
@@ -20,6 +26,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Render the latest name and counter on page load
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("name-form");
   const inputField = document.getElementById("input-field");
@@ -27,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const counterBox = document.getElementById("counter-box");
 
   // Scroll to Section 1 when "Ready to Rename?" button is clicked
+
   document
     .getElementById("return-to-section1")
     .addEventListener("click", () => {
@@ -40,8 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const newName = inputField.value.trim();
 
+    // Submit the name to Firestore
+
     if (newName) {
-      await addDoc(collection(db, "globalWarmingNames"), { name: newName });
+      await addDoc(collection(db, "globalWarmingNames"), {
+        name: newName,
+        createdAt: serverTimestamp(), // Add server-side timestamp
+      });
       nameDisplay.textContent = newName;
       inputField.value = ""; // Clear input field
 
@@ -58,23 +72,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Load latest name and counter on page load
+
+  Copy;
   async function loadLatestNameAndCounter() {
     try {
-      const querySnapshot = await getDocs(
+      console.log("Fetching latest name and counter...");
+
+      // Create a query to fetch the latest document
+      const q = query(
         collection(db, "globalWarmingNames"),
-        orderBy("name", "desc")
+        orderBy("createdAt", "desc"),
+        limit(1)
       );
-      const names = querySnapshot.docs.map((doc) => doc.data().name);
-      if (names.length > 0) {
-        nameDisplay.textContent = names[0]; // Show last submitted name
+
+      console.log("Query created:", q);
+
+      await addDoc(collection(db, "globalWarmingNames"), {
+        name: "Earth Fever",
+        createdAt: Timestamp.now(),
+      });
+
+      // Execute the query
+      const querySnapshot = await getDocs(q);
+
+      console.log("Query snapshot:", querySnapshot.docs);
+
+      if (!querySnapshot.empty) {
+        const latestDoc = querySnapshot.docs[0];
+        const latestName = latestDoc.data().name;
+        const createdAt = latestDoc.data().createdAt.toDate(); // Convert Firestore timestamp to JavaScript Date
+        console.log("Latest name:", latestName);
+        console.log("Created at:", createdAt);
+        nameDisplay.textContent = latestName; // Show last submitted name
+      } else {
+        console.log("No names found in the collection.");
+        nameDisplay.textContent = "No names yet!"; // Handle empty collection
       }
-      counterBox.textContent = names.length; // Update counter
+
+      // Update the counter
+      const totalDocs = await getTotalDocumentCount("globalWarmingNames");
+      console.log("Total documents:", totalDocs);
+      counterBox.textContent = totalDocs.toString();
     } catch (error) {
       console.error("Error loading latest name and counter:", error);
+      nameDisplay.textContent = "Error loading name";
+      counterBox.textContent = "Error loading counter";
     }
   }
-
-  loadLatestNameAndCounter();
 
   // ---- CASE CAROUSEL ---->
 
