@@ -87,11 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("Query created:", q);
 
-      await addDoc(collection(db, "globalWarmingNames"), {
-        name: "Earth Fever",
-        createdAt: Timestamp.now(),
-      });
-
       // Execute the query
       const querySnapshot = await getDocs(q);
 
