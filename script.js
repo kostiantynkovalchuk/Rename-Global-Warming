@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Load latest name and counter on page load
 
-  Copy;
   async function loadLatestNameAndCounter() {
     try {
       console.log("Fetching latest name and counter...");
