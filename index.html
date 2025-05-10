@@ -6,102 +6,271 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
     />
     <title>Rename Global Warming</title>
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="navbar">
         <ul>
-          <li><a href="#footer">About</a></li>
-          <li><a href="#">Log in</a></li>
+          <!--<li><a href="#footer">Log in</a></li> -->
         </ul>
       </nav>
     </header>
 
+    <!-- Section 1 "Rename Global Warming" -->
+
     <section id="section-1">
-      <!--Section where user can input his option -->
-      <h1 class="rename-h1">RENAME</h1>
-      <h1 class="gw-h1">GLOBAL WARMING</h1>
-      <form action="/submit" method="POST">
-        <label for="inputField"></label>
+      <div class="heading-container">
+        <h1 class="rename-h1">RENAME</h1>
+        <h2 class="gw-h1">"global warming"</h2>
+      </div>
+      <form id="name-form" action="#" method="POST">
         <input
           type="text"
           id="input-field"
-          name="inputField"
+          name="suggestion"
           placeholder="Enter your option"
+          required
         />
         <button id="sub-button" type="submit">Submit</button>
       </form>
     </section>
 
+    <!-- Section 2 "Why Do I Care" -->
+
     <section id="section-2">
-      <!--Section where user can read about the purpose of the project -->
-      <h2>WHY DO I EVEN CARE?</h2>
-      <p>
-        We are starting to normalise global warming. Its becoming a common
-        place. But things are getting worse. Behind these semantically neutral
-        (or even positive) words are tragedies and horrifying disasters. We
-        caused. Its time to fix it before its too late. Lets start with giving
-        it a proper name that reflects its nature.
-      </p>
+      <div class="content-wrapper">
+        <h2>WHY DO I CARE?</h2>
+        <p>
+          We are starting to normalize global warming. And while it's becoming a
+          commonplace, things are getting worse. Behind this neutral wording are
+          <mark
+            ><span STYLE="font-weight:bold;color:var(--black)"
+              >tragedies and horrifying disasters</span
+            ></mark
+          >, that we have caused. It's time to fix it.<br /><br />
+          Let's start with giving this phenomenon a name that it truly deserves.
+          This project’s database will be offered to European agencies and
+          organizations focused on climate policy, environmental research, and
+          sustainability (<a href="https://www.eea.europa.eu" target="_blank"
+            >EEA</a
+          >,
+          <a href="https://climate.ec.europa.eu" target="_blank">DG CLIMA</a>,
+          <a
+            href="https://www.europarl.europa.eu/committees/en/envi/home.html"
+            target="_blank"
+            >ENVI</a
+          >
+          and others).
+        </p>
+      </div>
     </section>
+
+    <!-- Section 3 "True Stories" -->
 
     <section id="section-3">
-      <!--Section where user can real cases of global warming events -->
       <div id="story-header">
-        <h3>REAL STORY</h3>
+        <h2>TRUE STORIES</h2>
       </div>
-      <button id="story-carousel-left"><</button>
-      <div id="img-carousel-container">
-        <button id="img-carousel-left"><</button>
-        <button id="img-carousel-right">></button>
-      </div>
-      <button id="story-carousel-right">></button>
-      <div id="story-description">
-        blablablabla blablav blabla blablabla blablabla blabla blabla vbla
+      <div class="case-carousel">
+        <button class="case-button case-left" id="case-left">&lt;</button>
+        <div id="carousel-cases">
+          <figure>
+            <div class="carousel-container">
+              <button
+                class="carousel-button carousel-left"
+                id="carousel-left-1"
+              >
+                &lt;
+              </button>
+              <div class="carousel-images" id="carousel-images-1">
+                <img src="cases_photos/spain1.jpg" alt="Spain flooding 1" />
+                <img src="cases_photos/spain2.jpg" alt="Spain flooding 2" />
+                <img src="cases_photos/spain3.jpg" alt="Spain flooding 3" />
+              </div>
+              <button
+                class="carousel-button carousel-right"
+                id="carousel-right-1"
+              >
+                &gt;
+              </button>
+            </div>
+            <div class="story-description">
+              <p>
+                <span STYLE="font-weight:bold;color:var(--black)"
+                  >October 2024, Valencia, Spain</span
+                ><br /><br />
+                DANA (Depresión Aislada en Niveles Altos) storm led to a tragic
+                <span STYLE="font-weight:bold;color:black"
+                  ><mark>death toll of 92 lives.</mark></span
+                >
+                This makes it one of the deadliest incidents of its kind in
+                recent history.<br /><br />
+                The catastrophic flooding overwhelmed local infrastructure, with
+                many people trapped in their homes, vehicles, or public spaces.
+                Rescue operations faced significant challenges due to the rapid
+                rise of floodwaters and extreme weather conditions.
+              </p>
+            </div>
+          </figure>
+          <figure>
+            <div class="carousel-container">
+              <button
+                class="carousel-button carousel-left"
+                id="carousel-left-2"
+              >
+                &lt;
+              </button>
+              <div class="carousel-images" id="carousel-images-2">
+                <img src="cases_photos/greece1.jpg" alt="Greece fire 1" />
+                <img src="cases_photos/greece2.jpg" alt="Greece fire 2" />
+                <img src="cases_photos/greece3.jpg" alt="Greece fire 3" />
+              </div>
+              <button
+                class="carousel-button carousel-right"
+                id="carousel-right-2"
+              >
+                &gt;
+              </button>
+            </div>
+            <div class="story-description">
+              <p>
+                <span STYLE="font-weight:bold;color:var(--black)"
+                  >Summer 2023, Rhodes, Greece</span
+                ><br /><br />
+                One of the worst wildfires in Greece’s history, fueled by
+                extreme heat and dry conditions, forced the
+                <span STYLE="font-weight:bold;color:black"
+                  ><mark>evacuation of over 20,000 people</mark></span
+                >, including tourists. <br /><br />
+                The fires destroyed homes, forests, and wildlife habitats,
+                highlighting the increasing risk of wildfires due to rising
+                global temperatures.
+              </p>
+            </div>
+          </figure>
+          <figure>
+            <div class="carousel-container">
+              <button
+                class="carousel-button carousel-left"
+                id="carousel-left-3"
+              >
+                &lt;
+              </button>
+              <div class="carousel-images" id="carousel-images-3">
+                <img
+                  src="cases_photos/ethiopia1.jpg"
+                  alt="Ethiopia draught 1"
+                />
+                <img
+                  src="cases_photos/ethiopia2.jpg"
+                  alt="Ethiopia draught 2"
+                />
+                <img
+                  src="cases_photos/ethiopia3.jpg"
+                  alt="Ethiopia draught 3"
+                />
+              </div>
+              <button
+                class="carousel-button carousel-right"
+                id="carousel-right-3"
+              >
+                &gt;
+              </button>
+            </div>
+            <div class="story-description">
+              <p>
+                <span STYLE="font-weight:bold;color:var(--black)"
+                  >2020-2023, Ethiopia, Somalia, Kenya</span
+                ><br /><br />
+                The Horn of Africa has experienced its worst drought in four
+                decades, with five consecutive failed rainy seasons. Millions of
+                people face extreme hunger, water shortages, and
+                displacement.<br /><br />
+                Climate change has intensified the drought, making recovery
+                increasingly difficult and worsening food insecurity in an
+                already vulnerable region.
+                <span STYLE="font-weight:bold;color:black"
+                  ><mark>Big waves of climate-related migration</mark></span
+                >
+                are to be expected in coming years.
+              </p>
+            </div>
+          </figure>
+        </div>
+        <button class="case-button case-right" id="case-right">&gt;</button>
       </div>
     </section>
 
+    <!-- Section 4 "Share My Story" -->
     <section id="section-4">
-      <!--Section where user can add his own story describing GW event -->
-      <button id="add-story">Add my story</button>
+      <div class="content-wrapper">
+        <button id="add-story">Share My Story</button>
+      </div>
     </section>
+
+    <!-- "Share My Story" Hidden section -->
+    <div id="share-story-section" class="hidden">
+      <div id="content-wrapper-share-story">
+        <form id="story-form">
+          <textarea
+            id="story-description"
+            placeholder="Write your story (up to 100 words)..."
+            maxlength="100"
+            required
+          ></textarea>
+          <input
+            type="file"
+            id="story-images"
+            accept="image/*"
+            multiple
+            max="5"
+            required
+          />
+          <button type="submit">Submit Story</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Section 5 "Name of the Day  -->
 
     <section id="section-5">
-      <!--Section where user can see the name option of the day -->
-      <h3>NAME OF THE DAY</h3>
-      <div id="name-of-the-day"></div>
-      <button id="return-to-section1">Ready to rename it?</button>
-      <!--Button returns user to section1 where he can enter his option -->
+      <div class="content-wrapper">
+        <h2>NAME OF THE DAY <span id="counter-box">0</span></h2>
+        <div id="name-of-the-day">Earth Fever</div>
+        <button id="return-to-section1">Ready to Rename It?</button>
+      </div>
     </section>
 
+    <!-- Footer "Developer Team" -->
+
     <footer id="footer">
+      <h2>DEVELOPER TEAM</h2>
+
       <div id="credentials">
-        <div id="profile1">
-          <img src="photo1.jpg" alt="Photo 1" />
-          <p>Saidumar Akbarov</p>
-        </div>
-        <div id="profile2">
-          <img src="photo2.jpg" alt="Photo 2" />
+        <div class="profile">
+          <img src="team_photos/photo1.jpg" alt="Photo 1" />
           <p>Ly-Ly Janusz</p>
         </div>
-        <div id="profile3">
-          <img src="photo3.jpg" alt="Photo 3" />
+        <div class="profile">
+          <img class="said-img" src="team_photos/photo2.jpg" alt="Photo 2" />
+          <p>Saidumar Akbarov</p>
+        </div>
+        <div class="profile">
+          <img src="team_photos/photo3.jpg" alt="Photo 3" />
           <p>Kostiantyn Kovalchuk</p>
         </div>
       </div>
-      <p id="team description">
+      <p class="description">
         This project is created within Migracode Web Development course.
       </p>
-      <p>&copy; 2025 All rights reserved. Barcelona, Spain.</p>
+      <p class="copyright">
+        &copy; 2025 All rights reserved. Barcelona, Spain.
+      </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
