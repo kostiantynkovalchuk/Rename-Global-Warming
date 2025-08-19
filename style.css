@@ -66,7 +66,7 @@ h2 {
 /* Section 1 */
 #section-1 {
   height: 100vh;
-  background-image: url("global_warming.jpg");
+  background-image: url("global_warming.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -197,9 +197,10 @@ form {
   transition: background-color 0.3s;
   position: absolute;
   top: 50%;
-  transform: translateX(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(90deg);
   width: 42.5px;
   height: 158.5px;
+  z-index: 100;
 }
 
 .case-button:hover {
@@ -207,12 +208,31 @@ form {
   color: var(--yellow);
 }
 
-#case-left {
-  left: 4%;
+.case-left {
+  left: calc(50% - 500px - 15px);
+  top: calc(50% - 100px);
+  transform: translateY(-50%) rotate(90deg);
 }
 
-#case-right {
-  right: 4%;
+.case-right {
+  right: calc(50% - 500px - 15px);
+  top: calc(50% - 100px);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Case button text rotation */
+.case-left::before {
+  content: "<";
+  transform: rotate(-90deg);
+  display: inline-block;
+  font-size: 1.25rem;
+}
+
+.case-right::before {
+  content: ">";
+  transform: rotate(-90deg);
+  display: inline-block;
+  font-size: 1.25rem;
 }
 
 #carousel-cases {
@@ -227,13 +247,6 @@ form {
   flex: 0 0 100%;
 }
 
-.carousel-container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-}
 
 .carousel-images {
   display: flex;
@@ -257,11 +270,12 @@ form {
   font-size: 1.25rem;
   font-weight: bold;
   transition: background-color 0.3s;
-  z-index: 10;
+  z-index: 100;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0.7rem;
+  left: 50%;
+  width: 50px;
+  height: 60px;
+  transform: rotate(90deg);
 }
 
 .carousel-button:hover {
@@ -512,8 +526,7 @@ footer .profile {
   margin-left: 10px;
 }
 
-/* General button styles */
-.carousel-button,
+/* General button styles - case buttons only */
 .case-button {
   background-color: var(--yellow);
   border: none;
@@ -523,14 +536,12 @@ footer .profile {
   font-size: 1.25rem;
   font-weight: bold;
   transition: background-color 0.3s;
-  z-index: 10;
+  z-index: 1000;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0.7rem;
+  width: 158.5px;
+  height: 42.5px;
 }
 
-.carousel-button:hover,
 .case-button:hover {
   background-color: var(--black);
   color: var(--yellow);
@@ -538,11 +549,13 @@ footer .profile {
 
 /* Carousel button positioning */
 .carousel-left {
-  left: 0;
+  top: 15px;
+  transform: translateX(-50%) rotate(90deg);
 }
 
 .carousel-right {
-  right: 0;
+  bottom: 15px !important;
+  transform: translateX(-50%) rotate(90deg);
 }
 
 /* Carousel container styles */
@@ -552,30 +565,115 @@ footer .profile {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  height: 400px;
+  padding: 0;
 }
 
 .carousel-images {
   display: flex;
+  flex-direction: column;
   transition: transform 0.5s ease-in-out;
-  width: 100%; /* Making sure images use the full width */
+  width: 100%;
+  height: 100%;
 }
 
 .carousel-images img {
-  width: 100%; /* Ensuring each image fills its space */
-  max-height: 400px; /* Adjusting max height */
-  object-fit: cover; /* Filling without distortion */
-  flex: 0 0 100%; /* Each image should take up exactly 100% of the container */
-}
-
-/* Case carousel styles */
-#carousel-cases {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
   width: 100%;
-}
-
-#carousel-cases figure {
-  min-width: 100%;
+  height: 100%;
   object-fit: cover;
   flex: 0 0 100%;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Carousel container adjustments */
+  .carousel-container {
+    height: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Ensure images are visible */
+  .carousel-images {
+    height: 300px;
+    width: 100%;
+  }
+  
+  .carousel-images img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Larger buttons for mobile touch */
+  .carousel-button {
+    width: 70px;
+    height: 60px;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  /* Fix carousel button positioning */
+  .carousel-left {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  
+  .carousel-right {
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  
+  .case-button {
+    width: 100px;
+    height: 30px;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  /* Case button mobile positioning */
+  .case-left {
+    left: 10px;
+    top: calc(50% - 60px);
+  }
+  
+  .case-right {
+    right: 10px;
+    top: calc(50% - 60px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller screens */
+  .carousel-container {
+    height: 250px;
+    width: 100%;
+  }
+  
+  /* Ensure images are visible on small screens */
+  .carousel-images {
+    height: 250px;
+    width: 100%;
+  }
+  
+  .carousel-images img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Case button positioning for very small screens */
+  .case-left {
+    left: 5px;
+    top: calc(50% - 50px);
+  }
+  
+  .case-right {
+    right: 5px;
+    top: calc(50% - 50px);
+  }
+}
+

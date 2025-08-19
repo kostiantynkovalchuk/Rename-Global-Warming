@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // -- IMAGE CAROUSEL -->
 
   function updateImageCarousel(parent, elements, counter) {
-    const elementWidth = parent.clientWidth;
-    parent.style.transform = `translateX(-${counter * elementWidth}px)`;
+    const elementHeight = parent.clientHeight;
+    parent.style.transform = `translateY(-${counter * elementHeight}px)`;
   }
 
   // - Dana Imgs ->
