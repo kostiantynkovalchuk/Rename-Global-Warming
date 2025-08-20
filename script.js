@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return snapshot.size;
   }
   // Load latest name and counter on page load
+  loadLatestNameAndCounter();
 
   async function loadLatestNameAndCounter() {
     try {

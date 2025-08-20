@@ -209,13 +209,13 @@ form {
 }
 
 .case-left {
-  left: calc(50% - 500px - 15px);
+  left: calc(50% - 500px - 45px);
   top: calc(50% - 100px);
   transform: translateY(-50%) rotate(90deg);
 }
 
 .case-right {
-  right: calc(50% - 500px - 15px);
+  right: calc(50% - 500px - 45px);
   top: calc(50% - 100px);
   transform: translateY(-50%) rotate(90deg);
 }
@@ -530,7 +530,7 @@ footer .profile {
 .case-button {
   background-color: var(--yellow);
   border: none;
-  padding: 0.75rem 1rem;
+  padding: 0;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1.25rem;
@@ -540,6 +540,9 @@ footer .profile {
   position: absolute;
   width: 158.5px;
   height: 42.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .case-button:hover {
@@ -549,12 +552,13 @@ footer .profile {
 
 /* Carousel button positioning */
 .carousel-left {
-  top: 15px;
+  top: 0;
   transform: translateX(-50%) rotate(90deg);
 }
 
+/* Desktop carousel button positioning */
 .carousel-right {
-  bottom: 15px !important;
+  bottom: 0;
   transform: translateX(-50%) rotate(90deg);
 }
 
@@ -586,94 +590,112 @@ footer .profile {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  /* Carousel container adjustments */
+  /* Clean mobile carousel layout */
   .carousel-container {
     height: 300px;
-    max-width: 100%;
-    margin: 0 auto;
     width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
   
-  /* Ensure images are visible */
-  .carousel-images {
-    height: 300px;
-    width: 100%;
-  }
-  
-  .carousel-images img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  /* Larger buttons for mobile touch */
-  .carousel-button {
-    width: 70px;
-    height: 60px;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-  }
-  
-  /* Fix carousel button positioning */
-  .carousel-left {
-    top: 15px;
+  /* Mobile carousel buttons - wider than tall */
+  .carousel-container .carousel-button {
+    width: 60px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 0;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left: 50%;
-    transform: translateX(-50%) rotate(90deg);
+    margin: 0;
   }
   
-  .carousel-right {
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg);
+  .carousel-container .carousel-button.carousel-left {
+    top: 0;
+    transform: translateX(-50%) rotate(0deg);
   }
   
-  .case-button {
-    width: 100px;
-    height: 30px;
-    font-size: 1.5rem;
-    padding: 0.5rem;
+  .carousel-container .carousel-button.carousel-right {
+    bottom: 0px;
+    transform: translateX(-50%) rotate(0deg);
   }
   
-  /* Case button mobile positioning */
-  .case-left {
-    left: 10px;
-    top: calc(50% - 60px);
+  /* Rotate text elements - left points up, right points down */
+  .carousel-container .carousel-button.carousel-left {
+    font-size: 0;
   }
   
-  .case-right {
-    right: 10px;
-    top: calc(50% - 60px);
+  .carousel-container .carousel-button.carousel-left::after {
+    content: "<";
+    transform: rotate(90deg);
+    display: inline-block;
+    font-size: 1rem;
+  }
+  
+  .carousel-container .carousel-button.carousel-right {
+    font-size: 0;
+  }
+  
+  .carousel-container .carousel-button.carousel-right::after {
+    content: ">";
+    transform: rotate(90deg);
+    display: inline-block;
+    font-size: 1rem;
+  }
+  
+  /* Mobile case buttons - vertical sizing (taller than wide) */
+  .case-carousel .case-button {
+    width: 42px;
+    height: 120px;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+  
+  /* Case button text positioning - higher specificity */
+  .case-carousel .case-button.case-left::before {
+    transform: rotate(0deg) translateX(5px);
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+  
+  .case-carousel .case-button.case-right::before {
+    transform: rotate(0deg) translateX(-3px);
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+  
+  /* Case button positioning for mobile - on inner borders */
+  .case-carousel .case-button.case-left {
+    left: calc(50% - 500px);
+    top: calc(40% - 100px);
+    transform: translateY(-50%) rotate(0deg);
+  }
+  
+  .case-carousel .case-button.case-right {
+    right: calc(50% - 500px);
+    top: calc(40% - 100px);
+    transform: translateY(-50%) rotate(0deg);
   }
 }
 
 @media (max-width: 480px) {
-  /* Smaller screens */
+  /* Small mobile adjustments */
   .carousel-container {
     height: 250px;
-    width: 100%;
   }
   
-  /* Ensure images are visible on small screens */
-  .carousel-images {
-    height: 250px;
-    width: 100%;
+  .case-carousel .case-button.case-left {
+    left: calc(50% - 50vw);
+    top: calc(40% - 80px);
   }
   
-  .carousel-images img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  /* Case button positioning for very small screens */
-  .case-left {
-    left: 5px;
-    top: calc(50% - 50px);
-  }
-  
-  .case-right {
-    right: 5px;
-    top: calc(50% - 50px);
+  .case-carousel .case-button.case-right {
+    right: calc(50% - 50vw);
+    top: calc(40% - 80px);
   }
 }
 
