@@ -295,6 +295,12 @@ form {
   color: var(--black);
 }
 
+.story-headline {
+  font-weight: bold;
+  color: var(--black);
+  text-decoration: none;
+}
+
 #case-container {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -697,6 +703,31 @@ footer .profile {
   .case-carousel .case-button.case-right {
     right: calc(50% - 50vw);
     top: calc(40% - 80px);
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Landscape mobile adjustments */
+  .carousel-container {
+    height: 200px;
+  }
+  
+  .case-carousel .case-button.case-left,
+  .case-carousel .case-button.case-right {
+    top: calc(50% - 60px);
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* Very short landscape screens */
+  .carousel-container {
+    height: 150px;
+  }
+  
+  .case-carousel .case-button.case-left,
+  .case-carousel .case-button.case-right {
+    top: calc(50% - 40px);
   }
 }
 
