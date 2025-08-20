@@ -492,6 +492,7 @@ footer .profile {
   height: 60px;
   border-radius: 50%;
   margin-bottom: 0.5rem;
+  object-fit: cover;
 }
 .profile p {
   color: var(--yellow);
